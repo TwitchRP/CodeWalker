@@ -31,6 +31,7 @@ namespace CodeWalker.GameFiles
             uint h = 0;
             byte[] chars;
 
+            text = text.ToLower();
             switch (encoding)
             {
                 default:
@@ -57,6 +58,7 @@ namespace CodeWalker.GameFiles
 
         public static uint GenHash(string text)
         {
+            text = text.ToLower();
             uint h = 0;
             for (int i = 0; i < text.Length; i++)
             {
@@ -210,6 +212,7 @@ namespace CodeWalker.GameFiles
 
         public static bool Ensure(string str)
         {
+            str = str.ToLower();
             uint hash = JenkHash.GenHash(str);
             if (hash == 0) return true;
             lock (syncRoot)
