@@ -4426,6 +4426,11 @@ namespace CodeWalker
         public void AddFile(string file)
         {
             if (Files == null) Files = new List<string>();
+            var nlow = System.IO.Path.GetFileNameWithoutExtension(file).ToLowerInvariant();
+            if (nlow.Length > 0)
+            {
+                JenkIndex.Ensure(nlow);
+            }
             Files.Add(file);
         }
         public void AddChild(MainTreeFolder child)

@@ -348,7 +348,7 @@ namespace CodeWalker.GameFiles
 
         public void BuildBaseJenkIndex()
         {
-            JenkIndex.Clear();
+            //JenkIndex.Clear();
             StringBuilder sb = new StringBuilder();
             foreach (RpfFile file in AllRpfs)
             {
@@ -405,12 +405,13 @@ namespace CodeWalker.GameFiles
                                     if (idx2 > 0)
                                     {
                                         var str2 = str1.Substring(0, idx2);
+                                        JenkIndex.Ensure(str2);
                                         JenkIndex.Ensure(str2 + "_lod");
                                         var maxi = 100;
                                         for (int i = 1; i <= maxi; i++)
                                         {
                                             var str3 = str2 + "_" + i.ToString().PadLeft(2, '0');
-                                            //JenkIndex.Ensure(str3);
+                                            JenkIndex.Ensure(str3);
                                             JenkIndex.Ensure(str3 + "_lod");
                                         }
                                     }
